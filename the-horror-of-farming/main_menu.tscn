@@ -1,0 +1,305 @@
+[gd_scene load_steps=28 format=4 uid="uid://c4qnf2lqrxf3b"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_rl3tn"]
+[ext_resource type="Texture2D" uid="uid://buq0lvjio16m2" path="res://Art/ui/Main_Menu/Border_tileset.png" id="1_snlwd"]
+[ext_resource type="Texture2D" uid="uid://drf28kskfvrp6" path="res://Art/ui/Main_Menu/BGImg.png" id="1_yinn4"]
+[ext_resource type="Texture2D" uid="uid://dn05sd2hom5cl" path="res://Art/ui/Main_Menu/Game_Name.png" id="3_affy6"]
+[ext_resource type="Texture2D" uid="uid://ct26isaw7c7eb" path="res://Art/ui/Main_Menu/Pointer_Arrow.png" id="4_slrt5"]
+[ext_resource type="Texture2D" uid="uid://bkq5bpa61sun8" path="res://Art/ui/Main_Menu/Button_GameStart_Pressed.png" id="5_k4drf"]
+[ext_resource type="Texture2D" uid="uid://d1xn1xvyhi6yp" path="res://Art/ui/Main_Menu/Button_GameStart.png" id="5_lmywj"]
+[ext_resource type="Texture2D" uid="uid://blmv2lk3n30uw" path="res://Art/ui/Main_Menu/Button_Credits_Pressed.png" id="7_b1ag7"]
+[ext_resource type="Texture2D" uid="uid://cqxbqeg6ca6lc" path="res://Art/ui/Main_Menu/Button_Credits_.png" id="8_2sht3"]
+[ext_resource type="Texture2D" uid="uid://drrrgvd81f01g" path="res://Art/ui/Main_Menu/Button_Exit_Pressed.png" id="9_fu8ii"]
+[ext_resource type="Texture2D" uid="uid://cgvmkfiw3mvos" path="res://Art/ui/Main_Menu/Button_Exit.png" id="10_4vaok"]
+[ext_resource type="FontFile" uid="uid://wx6f7vmvngkj" path="res://Art/ui/pixelFont-7-8x14-sproutLands.ttf" id="12_0e11r"]
+[ext_resource type="AudioStream" uid="uid://clmponw2rljmd" path="res://Art/SFX/Music/DaytimeTheme1.mp3" id="13_jd1xo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36tlu"]
+texture = ExtResource("1_snlwd")
+texture_region_size = Vector2i(29, 18)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_254dl"]
+tile_size = Vector2i(29, 18)
+sources/0 = SubResource("TileSetAtlasSource_36tlu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypnou"]
+texture = ExtResource("5_k4drf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5iwl2"]
+texture = ExtResource("5_k4drf")
+modulate_color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dygtj"]
+texture = ExtResource("5_lmywj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5f44"]
+texture = ExtResource("7_b1ag7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvp4b"]
+texture = ExtResource("7_b1ag7")
+modulate_color = Color(0.699653, 0.699653, 0.699653, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppu21"]
+texture = ExtResource("8_2sht3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fytip"]
+texture = ExtResource("9_fu8ii")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsae3"]
+texture = ExtResource("9_fu8ii")
+modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbog1"]
+texture = ExtResource("10_4vaok")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uk4xn"]
+texture = ExtResource("4_slrt5")
+modulate_color = Color(0.808998, 0.808998, 0.808998, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whhu0"]
+texture = ExtResource("4_slrt5")
+modulate_color = Color(0.533037, 0.533037, 0.533037, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjf1g"]
+texture = ExtResource("4_slrt5")
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rl3tn")
+
+[node name="MenuContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="BG" type="NinePatchRect" parent="MenuContainer"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+texture = ExtResource("1_yinn4")
+
+[node name="VineBorder" type="TileMapLayer" parent="MenuContainer"]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAAAAsAAAAAAAAAADABAAsAAAAAAAAAADACAAsAAAAAAAAAADADAAsAAAAAAAAAADAEAAsAAAAAAAAAADAFAAsAAAAAAAAAADAGAAsAAAAAAAAAADAHAAsAAAAAAAAAADAIAAsAAAAAAAAAADAJAAsAAAAAAAAAADAKAAsAAAAAAAAAADALAAsAAAAAAAAAADAMAAsAAAAAAAAAADANAAsAAAAAAAAAADA=")
+tile_set = SubResource("TileSet_254dl")
+
+[node name="TitleScreenContainer" type="MarginContainer" parent="MenuContainer"]
+custom_minimum_size = Vector2(1800, 900)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleImg" type="NinePatchRect" parent="MenuContainer/TitleScreenContainer"]
+modulate = Color(1, 1, 1, 0.878431)
+custom_minimum_size = Vector2(1100, 800)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_affy6")
+
+[node name="OptionsContainer" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="ArrowContainer" type="VBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 130
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StartArrow" type="NinePatchRect" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_slrt5")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreditsArrow" type="NinePatchRect" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_slrt5")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ExitArrow" type="NinePatchRect" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ArrowContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_slrt5")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="StartContainer" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/StartContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_ypnou")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5iwl2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dygtj")
+
+[node name="CreditsContainer" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreditsButton" type="Button" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/CreditsContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_a5f44")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kvp4b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ppu21")
+
+[node name="ExitContainer" type="HBoxContainer" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ExitButton" type="Button" parent="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/ExitContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_fytip")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tsae3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sbog1")
+
+[node name="CreditsBG" type="NinePatchRect" parent="MenuContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_yinn4")
+
+[node name="Label" type="Label" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 245.0
+theme_override_fonts/font = ExtResource("12_0e11r")
+theme_override_font_sizes/font_size = 100
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 235.0
+offset_right = 799.0
+offset_bottom = 886.0
+theme_override_fonts/normal_font = ExtResource("12_0e11r")
+theme_override_font_sizes/normal_font_size = 56
+text = "Programmers: 
+
+
+Artists:
+
+
+VFX/SFX:
+
+
+Narrative:
+
+
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 237.0
+offset_right = 1782.0
+offset_bottom = 294.0
+theme_override_fonts/normal_font = ExtResource("12_0e11r")
+theme_override_font_sizes/normal_font_size = 40
+text = "Christos Greer, john Sangster,  Brandon Ruddock
+"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 379.0
+offset_right = 1782.0
+offset_bottom = 436.0
+theme_override_fonts/normal_font = ExtResource("12_0e11r")
+theme_override_font_sizes/normal_font_size = 40
+text = "Anna Chistiakova, Alex Garcia
+"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 524.0
+offset_right = 1782.0
+offset_bottom = 581.0
+theme_override_fonts/normal_font = ExtResource("12_0e11r")
+theme_override_font_sizes/normal_font_size = 40
+text = "Brandon Ruddock
+"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 671.0
+offset_right = 1782.0
+offset_bottom = 728.0
+theme_override_fonts/normal_font = ExtResource("12_0e11r")
+theme_override_font_sizes/normal_font_size = 40
+text = "Anna chistiakova
+"
+
+[node name="BackButton" type="Button" parent="MenuContainer/CreditsBG"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 1058.0
+offset_right = 321.0
+offset_bottom = 1174.0
+rotation = 3.14159
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_uk4xn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whhu0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mjf1g")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_jd1xo")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="mouse_entered" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/StartContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/StartContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/StartContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/CreditsContainer/CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/CreditsContainer/CreditsButton" to="." method="_on_credits_button_mouse_exited"]
+[connection signal="pressed" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/CreditsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/ExitContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/ExitContainer/ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="MenuContainer/TitleScreenContainer/OptionsContainer/ButtonContainer/ExitContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuContainer/CreditsBG/BackButton" to="." method="_on_back_button_pressed"]

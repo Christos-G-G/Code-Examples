@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcjur41en3fhk"]
+
+[ext_resource type="Script" path="res://popup.gd" id="2_86h8t"]
+
+[node name="Popup" type="Button"]
+offset_left = -31.0
+offset_top = -28.0
+offset_right = 34.0
+offset_bottom = 34.0
+scale = Vector2(0.5, 0.5)
+flat = true
+script = ExtResource("2_86h8t")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

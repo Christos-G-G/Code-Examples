@@ -1,0 +1,118 @@
+[gd_scene load_steps=17 format=3 uid="uid://n2dpy6fafedi"]
+
+[ext_resource type="Shader" uid="uid://dtb554phw4a30" path="res://Scenes/particle_shader.tres" id="1_p47bq"]
+[ext_resource type="Script" path="res://Art/VFX Prefabs/plant_growth_fx.gd" id="1_sk1hs"]
+[ext_resource type="Texture2D" uid="uid://bnmvbco00o5np" path="res://Art/Textures/32x32_Star_8.png" id="2_o5qlh"]
+[ext_resource type="Texture2D" uid="uid://kgf7peackux1" path="res://Art/Textures/16x16_FX_6.png" id="3_pcfdo"]
+[ext_resource type="Shader" uid="uid://dgmfnsx2y3206" path="res://circleShader.tres" id="4_dl0fu"]
+[ext_resource type="ArrayMesh" uid="uid://ijrnex4qw1cc" path="res://Art/ui/circle mesh.obj" id="5_xqsy5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkxq0"]
+render_priority = 0
+shader = ExtResource("1_p47bq")
+shader_parameter/MainTexture = ExtResource("2_o5qlh")
+
+[sub_resource type="Curve" id="Curve_dld04"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_sh68e"]
+texture_mode = 1
+curve = SubResource("Curve_dld04")
+
+[sub_resource type="Curve" id="Curve_gthq0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8bupe"]
+curve = SubResource("Curve_gthq0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wedlu"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(1, 1, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 2.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 3.0
+scale_min = 1.5
+scale_max = 1.75
+scale_curve = SubResource("CurveTexture_8bupe")
+color = Color(0.880642, 1, 0.761576, 0.996078)
+alpha_curve = SubResource("CurveTexture_sh68e")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_e2g5n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghaqx"]
+render_priority = 0
+shader = ExtResource("1_p47bq")
+shader_parameter/MainTexture = ExtResource("3_pcfdo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4e3n2"]
+lifetime_randomness = 0.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+color = Color(0.837706, 0.883513, 0.800206, 0.996078)
+alpha_curve = SubResource("CurveTexture_sh68e")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ls6vi"]
+render_priority = 0
+shader = ExtResource("4_dl0fu")
+shader_parameter/CircleColor = Color(0.760784, 0.85098, 0.521569, 1)
+shader_parameter/Opacity = 0.0
+shader_parameter/Speed = Vector2(0, -1)
+
+[node name="PlantGrowthFX" type="Node3D"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_sk1hs")
+
+[node name="PlantGrowthParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 7.09515, 0, 0.163982)
+material_override = SubResource("ShaderMaterial_xkxq0")
+ignore_occlusion_culling = true
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wedlu")
+draw_pass_1 = SubResource("QuadMesh_e2g5n")
+
+[node name="PlantGrowthParticles2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 7.12532, 0, 0.169728)
+material_override = SubResource("ShaderMaterial_ghaqx")
+ignore_occlusion_culling = true
+emitting = false
+amount = 80
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4e3n2")
+draw_pass_1 = SubResource("QuadMesh_e2g5n")
+
+[node name="PulseShaderEffect" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 6.86854, 0, 0.0799354)
+visible = false
+material_override = SubResource("ShaderMaterial_ls6vi")
+mesh = ExtResource("5_xqsy5")

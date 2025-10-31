@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8iick1fxjeks"]
+
+[ext_resource type="Script" path="res://horse_game.gd" id="1_8l0xw"]
+[ext_resource type="Texture2D" uid="uid://duju0b7p5mxmu" path="res://Art/Your paragraph text.png" id="2_bpjpd"]
+[ext_resource type="Texture2D" uid="uid://cu3x0768w0h31" path="res://Art/play-button-icon-png-5.png" id="3_wnwtx"]
+[ext_resource type="Texture2D" uid="uid://bs8swprivws2l" path="res://Art/background.jpg" id="4_ty3xo"]
+[ext_resource type="Script" path="res://game.gd" id="5_di02r"]
+[ext_resource type="Texture2D" uid="uid://bfvgdsbk1p2xr" path="res://Art/Transparent_Horse_PNG_Clipart.png" id="6_ualay"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k74d6"]
+radius = 1016.3
+
+[node name="HorseGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8l0xw")
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBack" type="TextureRect" parent="Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bpjpd")
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 137.0
+offset_right = 834.0
+offset_bottom = 895.0
+scale = Vector2(0.04, 0.04)
+icon = ExtResource("3_wnwtx")
+flat = true
+
+[node name="Game" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="Game"]
+position = Vector2(150, 112.5)
+scale = Vector2(0.490196, 0.550122)
+texture = ExtResource("4_ty3xo")
+
+[node name="Tutorial" type="Control" parent="Game"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Game/Tutorial"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 244.0
+offset_bottom = 104.0
+text = "Press LClick to move
+horse UP!
+Press RClick to move
+horse DOWN!
+Have fun!!!
+
+"
+
+[node name="OK" type="Button" parent="Game/Tutorial"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 134.0
+offset_right = 128.0
+offset_bottom = 212.0
+text = "Ok"
+
+[node name="Game" type="Node2D" parent="Game"]
+visible = false
+script = ExtResource("5_di02r")
+
+[node name="TransparentHorsePngClipart" type="Sprite2D" parent="Game/Game"]
+position = Vector2(61, 111)
+scale = Vector2(0.0187986, 0.0187986)
+texture = ExtResource("6_ualay")
+
+[node name="Area2D" type="Area2D" parent="Game/Game/TransparentHorsePngClipart"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Game/TransparentHorsePngClipart/Area2D"]
+shape = SubResource("CircleShape2D_k74d6")
+
+[node name="ObstacleSpawn" type="Timer" parent="Game/Game"]
+wait_time = 3.0
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Game/Tutorial/OK" to="." method="_on_ok_pressed"]
+[connection signal="area_entered" from="Game/Game/TransparentHorsePngClipart/Area2D" to="Game/Game" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Game/Game/ObstacleSpawn" to="Game/Game" method="_on_obstacle_spawn_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://db8hibu45teax"]
+
+[ext_resource type="Texture2D" uid="uid://cd14ow367xekt" path="res://Art/objects/Vine.png" id="1_rtxd1"]
+
+[node name="Vine" type="Sprite3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 0, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_rtxd1")

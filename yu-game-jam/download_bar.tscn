@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bswjhwmry61py"]
+
+[ext_resource type="Script" path="res://download_bar.gd" id="1_14rwu"]
+[ext_resource type="Texture2D" uid="uid://mx0ln84dma5y" path="res://Art/Buttons_Ui.png" id="2_dwj7p"]
+[ext_resource type="FontFile" uid="uid://baqkttri8i1nf" path="res://Art/vhs-gothic.ttf" id="3_tsh18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xn44"]
+atlas = ExtResource("2_dwj7p")
+region = Rect2(1285, 378, 510, 214)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k8ly"]
+atlas = ExtResource("2_dwj7p")
+region = Rect2(984, 108, 456, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shx2r"]
+texture = SubResource("AtlasTexture_7k8ly")
+
+[sub_resource type="Theme" id="Theme_c4sov"]
+ProgressBar/styles/background = SubResource("StyleBoxTexture_shx2r")
+ProgressBar/styles/fill = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uka8k"]
+atlas = ExtResource("2_dwj7p")
+region = Rect2(102, 806, 155, 54)
+
+[sub_resource type="LabelSettings" id="LabelSettings_241fk"]
+font = ExtResource("3_tsh18")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="DownloadBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14rwu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 186.0
+offset_right = 844.0
+offset_bottom = 424.0
+texture = SubResource("AtlasTexture_8xn44")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 374.0
+offset_top = 295.0
+offset_right = 819.0
+offset_bottom = 336.0
+theme = SubResource("Theme_c4sov")
+value = 45.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 347.0
+offset_right = 675.0
+offset_bottom = 409.0
+icon = SubResource("AtlasTexture_uka8k")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 230.0
+offset_right = 780.0
+offset_bottom = 264.0
+text = "Downloading....."
+label_settings = SubResource("LabelSettings_241fk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

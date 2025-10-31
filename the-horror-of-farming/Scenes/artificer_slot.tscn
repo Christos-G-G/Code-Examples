@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dxip5av2140"]
+
+[ext_resource type="Texture2D" uid="uid://bfiuxn5j7brpj" path="res://Art/ui/foreground.png" id="1_joedh"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="2_nibsq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0lgj"]
+texture = ExtResource("1_joedh")
+
+[node name="Artificer" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot" type="Panel" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_s0lgj")
+script = ExtResource("2_nibsq")

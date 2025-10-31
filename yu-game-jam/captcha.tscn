@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhdadgvfu5n7o"]
+
+[ext_resource type="Script" path="res://captcha.gd" id="1_wvymg"]
+[ext_resource type="Texture2D" uid="uid://mx0ln84dma5y" path="res://Art/Buttons_Ui.png" id="2_7d87h"]
+[ext_resource type="Texture2D" uid="uid://c75kaydh4puhd" path="res://Art/HorseBlank.png" id="2_xjtsi"]
+[ext_resource type="Texture2D" uid="uid://b8v7wg8vcxtu6" path="res://Art/Horse1.png" id="3_jd5fm"]
+[ext_resource type="Texture2D" uid="uid://1m4n5bmusj8l" path="res://Art/Horse2.png" id="4_pky64"]
+[ext_resource type="Texture2D" uid="uid://difajfxtkphv7" path="res://Art/Horse5.png" id="5_4gl7g"]
+[ext_resource type="Texture2D" uid="uid://bxhtjhblu84lf" path="res://Art/Horse6.png" id="6_a7wrc"]
+[ext_resource type="Texture2D" uid="uid://citsm3rpl2r22" path="res://Art/Horse3.png" id="7_bqcn1"]
+[ext_resource type="Texture2D" uid="uid://ranu3td1tyre" path="res://Art/Horse4.png" id="8_utrhf"]
+[ext_resource type="Texture2D" uid="uid://cc3fqo5p0fd30" path="res://Art/Horse7.png" id="9_v3ibu"]
+[ext_resource type="Texture2D" uid="uid://d0jsoi6n8khdt" path="res://Art/Horse8.png" id="10_3g2i8"]
+[ext_resource type="FontFile" uid="uid://baqkttri8i1nf" path="res://Art/vhs-gothic.ttf" id="12_vbbw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do1cf"]
+atlas = ExtResource("2_7d87h")
+region = Rect2(1285, 378, 510, 214)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4gcs4"]
+font = ExtResource("12_vbbw6")
+font_color = Color(0, 0, 0, 1)
+
+[node name="Captcha" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wvymg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 138.0
+offset_right = 828.0
+offset_bottom = 476.0
+texture = SubResource("AtlasTexture_do1cf")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 160.0
+offset_right = 1397.0
+offset_bottom = 1011.0
+scale = Vector2(0.33, 0.33)
+columns = 3
+
+[node name="Button1" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_xjtsi")
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("3_jd5fm")
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("4_pky64")
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("5_4gl7g")
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("6_a7wrc")
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("7_bqcn1")
+
+[node name="Button7" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("8_utrhf")
+
+[node name="Button8" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("9_v3ibu")
+
+[node name="Button9" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("10_3g2i8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 156.0
+offset_right = 513.0
+offset_bottom = 279.0
+text = "WAIT!
+Complete the
+puzzle to 
+prove you're 
+not a
+bot!"
+label_settings = SubResource("LabelSettings_4gcs4")
+
+[connection signal="pressed" from="GridContainer/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="GridContainer/Button9" to="." method="_on_button_9_pressed"]

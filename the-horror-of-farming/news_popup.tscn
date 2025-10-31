@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg7cmfib84pj8"]
+
+[ext_resource type="Script" path="res://Scripts/news_popup.gd" id="1_0gjbv"]
+[ext_resource type="Texture2D" uid="uid://c8deiafx4y7h5" path="res://Art/ui/Newspaper_Background.png" id="2_2ge62"]
+[ext_resource type="Texture2D" uid="uid://cswemijtiw0ed" path="res://Art/ui/Exit_Box.png" id="3_a1143"]
+[ext_resource type="Texture2D" uid="uid://cnnfeneqbte1y" path="res://Art/ui/Exit_Symbol.png" id="3_emb38"]
+[ext_resource type="FontFile" uid="uid://wx6f7vmvngkj" path="res://Art/ui/pixelFont-7-8x14-sproutLands.ttf" id="4_7lnpk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_735x6"]
+font = ExtResource("4_7lnpk")
+font_color = Color(0.498039, 0.439216, 0.541176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gk7to"]
+texture = ExtResource("3_emb38")
+modulate_color = Color(0.646028, 0.64603, 0.646028, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_je14q"]
+texture = ExtResource("3_emb38")
+modulate_color = Color(0.344076, 0.344076, 0.344076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvo27"]
+texture = ExtResource("3_emb38")
+
+[node name="News" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0gjbv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -136.0
+offset_right = 235.5
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_2ge62")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 170.0
+offset_top = -133.0
+offset_right = 230.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_a1143")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -25.0
+offset_right = -7.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.498039, 0.439216, 0.541176, 1)
+text = "Is Brightroot farm making a comeback? Selection of fresh veggies available at the local market"
+label_settings = SubResource("LabelSettings_735x6")
+autowrap_mode = 3
+
+[node name="XitButton" type="Button" parent="."]
+process_mode = 3
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 201.0
+offset_top = -131.0
+offset_right = 241.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_gk7to")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_je14q")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qvo27")
+
+[connection signal="pressed" from="XitButton" to="." method="_on_button_pressed"]

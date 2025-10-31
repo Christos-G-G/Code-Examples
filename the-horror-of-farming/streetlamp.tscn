@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmrqaljcu0248"]
+
+[ext_resource type="Texture2D" uid="uid://c71bbds3x5tso" path="res://Art/Environment/Street_Lamp.png" id="1_qyjt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08ylu"]
+size = Vector3(0.128052, 1, 0.0315857)
+
+[node name="Streetlamp" type="Sprite3D"]
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 10.4333, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_qyjt7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.0416667, -8.82326e-24, -8.82325e-24, 8.82325e-24, -1.82131e-09, 0.0416667, -8.82326e-24, -0.0416667, -1.82131e-09, 0, 0.762333, 0.0712043)
+light_color = Color(0.858097, 0.608133, 0.339218, 1)
+light_energy = 16.0
+shadow_enabled = true
+distance_fade_begin = 123.03
+spot_range = 92.0
+spot_angle = 35.27
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115967, 0, 0.000259399)
+shape = SubResource("BoxShape3D_08ylu")

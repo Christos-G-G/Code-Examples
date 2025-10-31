@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyhq52xx5ixhl"]
+
+[ext_resource type="Texture2D" uid="uid://bfiuxn5j7brpj" path="res://Art/ui/foreground.png" id="1_d5y0b"]
+[ext_resource type="Script" path="res://soil.gd" id="1_somwg"]
+[ext_resource type="Script" path="res://soil_area.gd" id="3_1wh03"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o6fgk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k6s3p"]
+height = 0.25
+radius = 0.15
+
+[node name="Soil" type="Node3D"]
+script = ExtResource("1_somwg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+modulate = Color(1, 0.47451, 0.388235, 1)
+shaded = true
+alpha_cut = 2
+texture = SubResource("ViewportTexture_o6fgk")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(32, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport"]
+texture = ExtResource("1_d5y0b")
+
+[node name="SoilArea" type="Area3D" parent="." node_paths=PackedStringArray("soil")]
+script = ExtResource("3_1wh03")
+soil = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SoilArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CylinderShape3D_k6s3p")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwx5lm0vu16jf"]
+
+[ext_resource type="Texture2D" uid="uid://4mm3wpsqety4" path="res://Art/townsfolk/Sign.png" id="1_3ff5d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyev1"]
+size = Vector3(0.34436, 0.342163, 0.0860291)
+
+[node name="ShopObject" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.151187, 0)
+visible = false
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_3ff5d")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453209, 0)
+visible = false
+alpha_cut = 2
+text = "BUY"
+
+[node name="ShopArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000793457, 0.160828, -0.016098)
+shape = SubResource("BoxShape3D_iyev1")

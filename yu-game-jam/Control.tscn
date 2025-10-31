@@ -1,0 +1,192 @@
+[gd_scene load_steps=16 format=3 uid="uid://bn63s887rc2li"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_payyy"]
+[ext_resource type="Texture2D" uid="uid://cyym5l2kvipbw" path="res://Art/breluv06gbc31.png" id="2_c08tr"]
+[ext_resource type="AudioStream" uid="uid://b4b0qqc2ahp3b" path="res://Art/Not_Classic_Synth (1).wav" id="2_rwoex"]
+[ext_resource type="Script" path="res://download_page.gd" id="3_aiywr"]
+[ext_resource type="Texture2D" uid="uid://byqhybowrunh5" path="res://Art/Interface_Ui.png" id="3_rlbt3"]
+[ext_resource type="AudioStream" uid="uid://d4lnvuoy2usxo" path="res://Art/FlashGame.wav" id="3_veyu4"]
+[ext_resource type="Texture2D" uid="uid://o5hyla2hc2iv" path="res://Art/Horseplayer_Ui.png" id="5_hkaxi"]
+[ext_resource type="Texture2D" uid="uid://cpmnhjss3vbcq" path="res://Art/Game_Ui.png" id="5_jsw5l"]
+[ext_resource type="PackedScene" uid="uid://b8iick1fxjeks" path="res://horse_game.tscn" id="8_s1ihn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3bs5"]
+atlas = ExtResource("3_rlbt3")
+region = Rect2(193, 95, 1425, 916)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5b37"]
+atlas = ExtResource("3_rlbt3")
+region = Rect2(209, 29, 279, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwkr6"]
+atlas = ExtResource("5_jsw5l")
+region = Rect2(22, 341, 1366, 688)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6e0l"]
+atlas = ExtResource("5_jsw5l")
+region = Rect2(1412, 675, 459, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fove"]
+atlas = ExtResource("5_jsw5l")
+region = Rect2(1451, 925, 390, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no3vj"]
+region = Rect2(62, 94, 430, 128)
+filter_clip = true
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_payyy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rwoex")
+volume_db = -15.0
+
+[node name="HorseTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_veyu4")
+volume_db = -15.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -45.0
+offset_top = -16.0
+offset_right = 1198.0
+offset_bottom = 683.0
+texture = ExtResource("2_c08tr")
+expand_mode = 1
+
+[node name="MainInternet" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 28.0
+offset_right = 1522.0
+offset_bottom = 944.0
+scale = Vector2(0.65, 0.65)
+texture = SubResource("AtlasTexture_t3bs5")
+
+[node name="Tab2" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 63.0
+offset_right = 549.0
+offset_bottom = 125.0
+scale = Vector2(0.65, 0.65)
+texture = SubResource("AtlasTexture_y5b37")
+
+[node name="Tab1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 63.0
+offset_right = 389.0
+offset_bottom = 125.0
+scale = Vector2(0.65, 0.65)
+texture = SubResource("AtlasTexture_y5b37")
+
+[node name="GamePage" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="GamePage"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 154.0
+offset_right = 997.0
+offset_bottom = 598.0
+texture = SubResource("AtlasTexture_qwkr6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="GamePage"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 234.0
+offset_right = 988.0
+offset_bottom = 418.0
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_t6e0l")
+
+[node name="PlayGame" type="Button" parent="GamePage"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 392.0
+offset_right = 907.0
+offset_bottom = 497.0
+icon = SubResource("AtlasTexture_6fove")
+flat = true
+
+[node name="DownloadPage" type="Control" parent="." node_paths=PackedStringArray("controlNode")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aiywr")
+controlNode = NodePath("..")
+
+[node name="TextureRect" type="TextureRect" parent="DownloadPage"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -38.0
+offset_right = 1918.0
+offset_bottom = 1042.0
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_hkaxi")
+
+[node name="Label" type="Label" parent="DownloadPage"]
+visible = false
+layout_mode = 0
+offset_left = 76.0
+offset_top = 98.0
+offset_right = 278.0
+offset_bottom = 183.0
+text = "Hey guys"
+
+[node name="DownloadButton" type="Button" parent="DownloadPage"]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 466.0
+offset_right = 1934.0
+offset_bottom = 814.0
+scale = Vector2(0.25, 0.25)
+icon = SubResource("AtlasTexture_no3vj")
+flat = true
+
+[node name="Tab1Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 67.0
+offset_right = 270.0
+offset_bottom = 95.0
+flat = true
+
+[node name="Tab2Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 278.0
+offset_top = 66.0
+offset_right = 434.0
+offset_bottom = 98.0
+flat = true
+
+[node name="HorseGame" parent="." instance=ExtResource("8_s1ihn")]
+visible = false
+layout_mode = 1
+offset_left = 476.0
+offset_top = 213.0
+offset_right = 476.0
+offset_bottom = 213.0
+scale = Vector2(1.5, 1.3)
+
+[connection signal="pressed" from="GamePage/PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="DownloadPage/DownloadButton" to="DownloadPage" method="_on_download_button_pressed"]
+[connection signal="pressed" from="Tab1Button" to="." method="_on_tab_1_button_pressed"]
+[connection signal="pressed" from="Tab2Button" to="." method="_on_tab_2_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cag6wlmya6vh3"]
+
+[ext_resource type="Texture2D" uid="uid://dobsn3axmnqdj" path="res://Art/ui/icon.svg" id="1_bueqv"]
+[ext_resource type="Script" path="res://Scripts/trap.gd" id="1_j1tyg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0rvb"]
+size = Vector3(3.03516, 3.11035, 1)
+
+[node name="Trap" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("1_bueqv")
+
+[node name="GroundToolArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_j1tyg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundToolArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.39)
+shape = SubResource("BoxShape3D_k0rvb")
+
+[connection signal="body_entered" from="GroundToolArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="GroundToolArea" to="." method="_on_body_exited"]

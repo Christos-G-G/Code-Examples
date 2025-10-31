@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfjpwq0ex32o6"]
+
+[ext_resource type="Script" path="res://Sign.gd" id="1_l1nbl"]
+[ext_resource type="Texture2D" uid="uid://4mm3wpsqety4" path="res://Art/townsfolk/Sign.png" id="2_lxc2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmc37"]
+size = Vector2(30, 28)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62roc"]
+
+[node name="Sign" type="CharacterBody2D"]
+script = ExtResource("1_l1nbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_dmc37")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 19.0
+texture = ExtResource("2_lxc2x")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+scale = Vector2(4, 4)
+shape = SubResource("CapsuleShape2D_62roc")

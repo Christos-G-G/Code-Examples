@@ -1,0 +1,312 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdf6c3x0rey87"]
+
+[ext_resource type="Script" path="res://tutorial_script.gd" id="1_2oko6"]
+[ext_resource type="Texture2D" uid="uid://bxjgllcgkutvt" path="res://Art/ui/MoneyDisplay.png" id="1_xw1ek"]
+[ext_resource type="FontFile" uid="uid://wx6f7vmvngkj" path="res://Art/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_6nvdf"]
+
+[node name="tutorial_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorials" type="Control" parent="." node_paths=PackedStringArray("tutorial_menu", "tutorial_steps")]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_2oko6")
+tutorial_menu = NodePath("..")
+tutorial_steps = [NodePath("tut1_container"), NodePath("tut2_container"), NodePath("tut3_container"), NodePath("tut4_container"), NodePath("tut5_container"), NodePath("tut6_container"), NodePath("tut7_container"), NodePath("tut8_container"), NodePath("tut9_container"), NodePath("tut10_container")]
+
+[node name="tut1_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut1_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut1_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut1_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 104.0
+offset_right = 501.0
+offset_bottom = 186.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Go over to the hoe and press \"E\" to pick it up"
+
+[node name="tut2_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut2_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut2_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut2_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 110.0
+offset_right = 501.0
+offset_bottom = 175.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "MouseClick on a grey patch to till the soil"
+
+[node name="tut3_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut3_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut3_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut3_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 110.0
+offset_right = 501.0
+offset_bottom = 175.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Press \"F\" to drop the current held tool"
+
+[node name="tut4_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut4_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut4_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut4_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 110.0
+offset_right = 501.0
+offset_bottom = 175.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Press \"4\" to select the radish seeds"
+
+[node name="tut5_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut5_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut5_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut5_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 110.0
+offset_right = 501.0
+offset_bottom = 175.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Click on the tilled soil to plant the seed"
+
+[node name="tut6_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut6_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut6_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut6_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 105.0
+offset_right = 501.0
+offset_bottom = 196.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Use the correct tool to complete the task"
+
+[node name="tut7_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut7_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut7_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut7_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 97.0
+offset_right = 501.0
+offset_bottom = 196.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Refill the watering can at the water barrel"
+
+[node name="tut8_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut8_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut8_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut8_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 97.0
+offset_right = 501.0
+offset_bottom = 196.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Go to your computer to access the shop and buy more seeds"
+
+[node name="tut9_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut9_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut9_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut9_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 97.0
+offset_right = 501.0
+offset_bottom = 196.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Place traps around your crops to protect them"
+
+[node name="tut10_container" type="MarginContainer" parent="tutorials"]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorials/tut10_container"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="tutorials/tut10_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xw1ek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tutorials/tut10_container/VBoxContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 97.0
+offset_right = 501.0
+offset_bottom = 196.0
+theme_override_colors/default_color = Color(0.431373, 0.152941, 0.152941, 1)
+theme_override_fonts/normal_font = ExtResource("2_6nvdf")
+theme_override_font_sizes/normal_font_size = 36
+text = "Sell crops to meet your quota 
+"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxare6aqjyfbd"]
+
+[ext_resource type="Script" path="res://Scripts/DayNight.gd" id="1_x6vrb"]
+
+[node name="DayNightSystem" type="Node"]
+script = ExtResource("1_x6vrb")
+
+[node name="Day Length" type="Timer" parent="."]
+wait_time = 600.0
+one_shot = true
+
+[node name="Night Length" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[connection signal="timeout" from="Day Length" to="." method="_on_day_length_timeout"]
+[connection signal="timeout" from="Night Length" to="." method="_on_night_length_timeout"]

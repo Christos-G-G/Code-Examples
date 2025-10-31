@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://xkeu6ddae88f"]
+
+[ext_resource type="Script" path="res://Scripts/beast_spawner.gd" id="1_vqd1g"]
+[ext_resource type="PackedScene" uid="uid://ocdamqhpa13u" path="res://Scenes/beast_a.tscn" id="2_fqgoi"]
+[ext_resource type="PackedScene" uid="uid://s735w7jgdlvr" path="res://Art/VFX Prefabs/monster_spawn_particles.tscn" id="3_7tpxu"]
+
+[node name="BeastSpawner" type="Node3D" groups=["DayNightSensitive"]]
+script = ExtResource("1_vqd1g")
+hound_prefab = ExtResource("2_fqgoi")
+monster_particles = ExtResource("3_7tpxu")
+
+[node name="SpawnCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://baegpl87py1l5"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yfb6j"]
+[ext_resource type="Texture2D" uid="uid://102dhkwt5bto" path="res://Art/character/charImage.png" id="3_mjgdp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvv8l"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wpvpu"]
+radius = 0.15
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146617, 0)
+script = ExtResource("1_yfb6j")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0487177, 0.163781, 8.39233e-05)
+gi_mode = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_mjgdp")
+
+[node name="PlayerArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
+transform = Transform3D(0.999982, 0.00606391, -0.000286158, -0.00606371, 0.999981, 0.00068082, 0.000290282, -0.000679072, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_uvv8l")
+
+[node name="InteractArea" type="Area3D" parent="."]
+transform = Transform3D(0.999999, 0.00133348, -0.000924165, -0.00133352, 0.999999, -4.83301e-05, 0.0009241, 4.95568e-05, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109, 0.3)
+shape = SubResource("SphereShape3D_wpvpu")
+
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_player_area_area_entered"]
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_player_area_area_exited"]

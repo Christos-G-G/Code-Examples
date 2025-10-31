@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb6lxxshm0hsu"]
+
+[ext_resource type="Shader" uid="uid://but3b5ae7cey6" path="res://Scenes/dust_shader.tres" id="1_16xvb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g2no"]
+render_priority = 0
+shader = ExtResource("1_16xvb")
+shader_parameter/Fade_Distance = 0.3
+
+[sub_resource type="Curve" id="Curve_wj42e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.492754, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5n1do"]
+texture_mode = 1
+curve = SubResource("Curve_wj42e")
+
+[sub_resource type="Gradient" id="Gradient_81mog"]
+offsets = PackedFloat32Array(0, 0.532258, 1)
+colors = PackedColorArray(0.412152, 0.412152, 0.412152, 1, 0.359069, 0.359069, 0.359069, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ytskx"]
+gradient = SubResource("Gradient_81mog")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_6h2ta"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.431009), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r2far"]
+curve = SubResource("Curve_6h2ta")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykq4i"]
+emission_shape_scale = Vector3(1, 0, 0.1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 0.1)
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0.5, 0, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+radial_velocity_min = 0.499978
+radial_velocity_max = 0.999978
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_r2far")
+color_ramp = SubResource("GradientTexture1D_ytskx")
+alpha_curve = SubResource("CurveTexture_5n1do")
+
+[sub_resource type="SphereMesh" id="SphereMesh_x5oys"]
+
+[node name="WalkingTrailFX" type="GPUParticles3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_8g2no")
+emitting = false
+amount = 3
+lifetime = 1.3
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_ykq4i")
+draw_pass_1 = SubResource("SphereMesh_x5oys")

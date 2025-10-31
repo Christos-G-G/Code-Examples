@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://kbv2seltrrfc"]
+
+[ext_resource type="Script" path="res://missing_install_notif.gd" id="1_nc36k"]
+[ext_resource type="Texture2D" uid="uid://mx0ln84dma5y" path="res://Art/Buttons_Ui.png" id="2_dyr7j"]
+[ext_resource type="FontFile" uid="uid://baqkttri8i1nf" path="res://Art/vhs-gothic.ttf" id="3_olbcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdiea"]
+atlas = ExtResource("2_dyr7j")
+region = Rect2(872, 616, 315, 332)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rodpw"]
+font = ExtResource("3_olbcw")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo58p"]
+atlas = ExtResource("2_dyr7j")
+region = Rect2(102, 806, 155, 54)
+
+[node name="MissingInstallNotif" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nc36k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 126.0
+offset_right = 721.0
+offset_bottom = 458.0
+texture = SubResource("AtlasTexture_qdiea")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 172.0
+offset_right = 856.0
+offset_bottom = 297.0
+text = "WAIT!
+You need HorsePlayer 
+to play this game 
+now!
+Install Horseplayer?"
+label_settings = SubResource("LabelSettings_rodpw")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 475.0
+offset_top = 339.0
+offset_right = 638.0
+offset_bottom = 404.0
+icon = SubResource("AtlasTexture_eo58p")
+flat = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

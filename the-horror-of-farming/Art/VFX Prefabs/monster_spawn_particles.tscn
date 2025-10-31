@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://s735w7jgdlvr"]
+
+[ext_resource type="Texture2D" uid="uid://kgf7peackux1" path="res://Art/Textures/16x16_FX_6.png" id="1_f171l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkl5o"]
+blend_mode = 1
+albedo_color = Color(0.624863, 0.447155, 1, 1)
+albedo_texture = ExtResource("1_f171l")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("1_f171l")
+metallic_texture_channel = 3
+roughness_texture = ExtResource("1_f171l")
+roughness_texture_channel = 2
+emission_enabled = true
+emission = Color(0.117647, 0.00392157, 1, 1)
+emission_energy_multiplier = 10.0
+normal_scale = 8.0
+ao_enabled = true
+ao_light_affect = 1.0
+refraction_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_xuemj"]
+offsets = PackedFloat32Array(0, 0.511029, 1)
+colors = PackedColorArray(0.395188, 0.000548354, 0.502563, 1, 0.688678, 0.346514, 0.775052, 1, 0.901809, 0.66767, 0.957167, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ox8n3"]
+gradient = SubResource("Gradient_xuemj")
+
+[sub_resource type="Curve" id="Curve_5yiwd"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 182.574), 0.0, 0.0, 0, 0, Vector2(0.23, 11.7962), 0.0, 0.0, 0, 0, Vector2(0.513333, -190.349), 0.0, 0.0, 0, 0, Vector2(0.796667, 8.31097), 0.0, 0.0, 0, 0, Vector2(0.986667, 200), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_usmcj"]
+curve = SubResource("Curve_5yiwd")
+
+[sub_resource type="Curve" id="Curve_sj7mb"]
+max_value = 3.0
+_data = [Vector2(0, 0.124665), 0.0, 0.0, 0, 0, Vector2(0.5, 1.53619), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvhsg"]
+curve = SubResource("Curve_sj7mb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l86n"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+velocity_pivot = Vector3(0, 50, 0)
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+angular_velocity_min = 90.0
+angular_velocity_max = 180.0
+orbit_velocity_min = -0.0709999
+orbit_velocity_max = 0.0600001
+gravity = Vector3(0, 3, 0)
+linear_accel_curve = SubResource("CurveTexture_usmcj")
+tangential_accel_min = 0.999998
+tangential_accel_max = 3.0
+scale_min = 0.2
+scale_max = 0.3
+scale_over_velocity_curve = SubResource("CurveTexture_gvhsg")
+color = Color(0.65691, 0.519128, 1, 1)
+color_ramp = SubResource("GradientTexture1D_ox8n3")
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 0.5
+turbulence_noise_speed = Vector3(0.63, 0.7, 0)
+turbulence_initial_displacement_min = 0.100001
+turbulence_initial_displacement_max = 0.100001
+
+[sub_resource type="SphereMesh" id="SphereMesh_5dor7"]
+
+[node name="MonsterSpawnParticles" type="GPUParticles3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.766365, 0)
+material_override = SubResource("StandardMaterial3D_fkl5o")
+amount = 50
+lifetime = 1.5
+speed_scale = 0.8
+explosiveness = 0.01
+process_material = SubResource("ParticleProcessMaterial_3l86n")
+draw_pass_1 = SubResource("SphereMesh_5dor7")

@@ -1,0 +1,75 @@
+{
+	"Fertilizer": {
+		"ItemCategory": "Consumable",
+		"StackSize": 99
+	},
+	
+	
+	"Radish Seeds": {
+		"ItemCategory": "Seeds",
+		"StackSize": 99,
+		"PlantType": "Radish",
+		"MaxGrowTime": 1200,
+		"TaskTimes": [180, 260],
+		"QualityScores": [1, 2, 3],
+		"CareTypes": ["True", "False", "False"],
+		"CareTimes": ["True", "False"]
+	},
+	"Radish": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Value": 15,
+		"Description": ""
+	},
+	
+	"Carrot Seeds": {
+		"ItemCategory": "Seeds",
+		"StackSize": 99,
+		"PlantType": "Carrot",
+		"MaxGrowTime": 1800,
+		"TaskTimes": [200, 400],
+		"QualityScores": [2, 3, 4],
+		"CareTypes": ["True", "True", "False"],
+		"CareTimes": ["True", "True"]
+	},
+	"Carrot": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Value": 30,
+		"Description": ""
+	},
+	
+	"Tomato Seeds": {
+		"ItemCategory": "Seeds",
+		"StackSize": 99,
+		"PlantType": "Tomato",
+		"MaxGrowTime": 2250,
+		"TaskTimes": [240, 350],
+		"QualityScores": [2, 3, 5],
+		"CareTypes": ["True", "True", "False"],
+		"CareTimes": ["True", "False"]
+	},
+	"Tomato": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Value": 40,
+		"Description": ""
+	},
+	
+	"Cauliflower Seeds": {
+		"ItemCategory": "Seeds",
+		"StackSize": 99,
+		"PlantType": "Cauliflower",
+		"MaxGrowTime": 4000,
+		"TaskTimes": [300, 450],
+		"QualityScores": [4, 5, 6],
+		"CareTypes": ["True", "True", "False"],
+		"CareTimes": ["True", "True"]
+	},
+	"Cauliflower": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Value": 50,
+		"Description": ""
+	}
+}

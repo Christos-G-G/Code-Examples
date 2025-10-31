@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1paeu3g7mw6d"]
+
+[ext_resource type="Script" path="res://game_captcha.gd" id="1_lpnxb"]
+[ext_resource type="Texture2D" uid="uid://cek8hvaq33suc" path="res://Art/Horse.png" id="2_6crgj"]
+[ext_resource type="Texture2D" uid="uid://mx0ln84dma5y" path="res://Art/Buttons_Ui.png" id="2_scfyp"]
+[ext_resource type="FontFile" uid="uid://baqkttri8i1nf" path="res://Art/vhs-gothic.ttf" id="3_xeswf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jc4a"]
+atlas = ExtResource("2_scfyp")
+region = Rect2(872, 616, 315, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m0eo"]
+atlas = SubResource("AtlasTexture_4jc4a")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uddw"]
+font = ExtResource("3_xeswf")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymtif"]
+atlas = ExtResource("2_scfyp")
+region = Rect2(102, 806, 155, 54)
+
+[node name="GameCaptcha" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpnxb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 166.0
+offset_right = 735.0
+offset_bottom = 498.0
+texture = SubResource("AtlasTexture_7m0eo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 206.0
+offset_right = 704.0
+offset_bottom = 266.0
+text = "WAIT! 
+Are you a human?
+Input the text below!"
+label_settings = SubResource("LabelSettings_6uddw")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 285.0
+offset_right = 620.0
+offset_bottom = 359.0
+texture = ExtResource("2_6crgj")
+expand_mode = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 374.0
+offset_right = 668.0
+offset_bottom = 414.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 422.0
+offset_right = 656.0
+offset_bottom = 484.0
+icon = SubResource("AtlasTexture_ymtif")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

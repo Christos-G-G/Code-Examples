@@ -1,0 +1,257 @@
+[gd_scene load_steps=14 format=3 uid="uid://dopl3d8mu1twk"]
+
+[ext_resource type="Script" path="res://install_popup.gd" id="1_isuoh"]
+[ext_resource type="Script" path="res://no_button.gd" id="2_1d85f"]
+[ext_resource type="Texture2D" uid="uid://mx0ln84dma5y" path="res://Art/Buttons_Ui.png" id="2_n3aob"]
+[ext_resource type="FontFile" uid="uid://baqkttri8i1nf" path="res://Art/vhs-gothic.ttf" id="3_37hdk"]
+[ext_resource type="Script" path="res://terms_menu.gd" id="4_8lpq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrb7x"]
+atlas = ExtResource("2_n3aob")
+region = Rect2(64, 423, 516, 360)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hwv3n"]
+font = ExtResource("3_37hdk")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xetj6"]
+atlas = ExtResource("2_n3aob")
+region = Rect2(102, 806, 155, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxnhj"]
+atlas = ExtResource("2_n3aob")
+region = Rect2(345, 805, 155, 54)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xdm8"]
+font = ExtResource("3_37hdk")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35s40"]
+atlas = ExtResource("2_n3aob")
+region = Rect2(75, 256, 421, 110)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0ica"]
+font = ExtResource("3_37hdk")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfw8k"]
+atlas = ExtResource("2_n3aob")
+region = Rect2(540, 108, 129, 103)
+
+[node name="InstallPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_isuoh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 92.0
+offset_right = 802.0
+offset_bottom = 465.0
+texture = SubResource("AtlasTexture_vrb7x")
+
+[node name="FirstMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="FirstMenu"]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 178.0
+offset_right = 883.0
+offset_bottom = 343.0
+text = "Looks like you're tying to install: 
+HorsePlayer™
+Would you like to continue? 
+Please say OK.
+Please say OK.
+Please say OK.
+Please say OK.
+Please say OK."
+label_settings = SubResource("LabelSettings_hwv3n")
+
+[node name="YesButton" type="Button" parent="FirstMenu"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 305.0
+offset_right = 465.0
+offset_bottom = 367.0
+scale = Vector2(2, 2)
+icon = SubResource("AtlasTexture_xetj6")
+flat = true
+
+[node name="NoButton" type="Button" parent="FirstMenu"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 359.0
+offset_right = 844.0
+offset_bottom = 421.0
+scale = Vector2(0.25, 0.25)
+icon = SubResource("AtlasTexture_qxnhj")
+flat = true
+script = ExtResource("2_1d85f")
+
+[node name="TermsMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_8lpq4")
+
+[node name="CheckButton" type="CheckButton" parent="TermsMenu"]
+visible = false
+layout_mode = 0
+offset_left = 315.0
+offset_top = 349.0
+offset_right = 359.0
+offset_bottom = 373.0
+
+[node name="Label" type="Label" parent="TermsMenu"]
+visible = false
+layout_mode = 0
+offset_left = 361.0
+offset_top = 352.0
+offset_right = 433.0
+offset_bottom = 375.0
+text = "Agree?"
+label_settings = SubResource("LabelSettings_4xdm8")
+
+[node name="Button" type="Button" parent="TermsMenu"]
+visible = false
+layout_mode = 0
+offset_left = 678.0
+offset_top = 409.0
+offset_right = 1107.0
+offset_bottom = 527.0
+scale = Vector2(0.25, 0.25)
+icon = SubResource("AtlasTexture_35s40")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TermsMenu"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 178.0
+offset_right = 782.0
+offset_bottom = 333.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_37hdk")
+text = "1. Acceptance of Terms
+
+By accessing and using the Services, you agree to these Terms and Conditions and any additional terms, conditions, or policies that may apply to specific areas of the Services. We reserve the right to modify, update, or change these Terms and Conditions at any time. Any changes will be posted on this page, and the revised Terms and Conditions will be effective immediately upon posting. It is your responsibility to review these Terms periodically for updates.
+
+2. Use of Services
+
+You agree to use the Services for lawful purposes only. You shall not:
+
+Violate any applicable local, state, national, or international law.
+Engage in any activity that interferes with or disrupts the Services.
+Use the Services to transmit any harmful, offensive, or illegal content.
+
+3. Account Registration
+
+To access certain features of the Services, you may be required to create an account. You agree to provide accurate, current, and complete information during the registration process. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. If you believe your account has been compromised, you must notify us immediately.
+
+4. Privacy Policy
+
+Your use of the Services is also governed by our Privacy Policy, which can be found somewhere else. By using the Services, you consent to the collection, use, and disclosure of your information as described in the Privacy Policy.
+
+5. Payments and Fees
+
+Some Services may require a fee. If you are required to pay a fee for certain services, you agree to provide accurate payment information and to promptly pay any applicable fees. All payments are non-refundable unless otherwise specified.
+
+6. Content Ownership
+
+You retain ownership of any content you upload or submit through the Services. However, by using the Services, you grant HorseNation a non-exclusive, royalty-free, worldwide license to use, display, and distribute such content in connection with providing the Services.
+
+7. Third-Party Links
+
+Our Services may contain links to third-party websites or services that are not owned or controlled by HorseLimited. We are not responsible for the content, privacy policies, or practices of third-party websites. You acknowledge and agree that we are not liable for any damages or losses arising from your use of third-party websites.
+
+8. Disclaimers and Limitation of Liability
+
+To the fullest extent permitted by law, the Services are provided “as is” and without any warranties of any kind, either express or implied. [Company Name] does not warrant that the Services will be error-free, secure, or uninterrupted. We are not responsible for any indirect, incidental, or consequential damages arising from your use of the Services.
+
+9. Indemnification
+
+You agree to indemnify, defend, and hold harmless [Company Name] and its affiliates, officers, directors, employees, and agents from any claims, damages, liabilities, and expenses (including reasonable attorneys’ fees) arising out of your use of the Services, violation of these Terms, or infringement of any rights of a third party.
+
+10. Termination
+
+We may suspend or terminate your access to the Services at our discretion if you violate these Terms and Conditions or if we believe it is necessary for any reason. Upon termination, your right to use the Services will immediately cease, and you must discontinue use of the Services.
+
+11. Governing Law
+
+These Terms and Conditions shall be governed by and construed in accordance with the laws of Horse County, without regard to its conflict of law principles. They shall make aware to the reader that the SECRET CODE IS: HORSE
+
+12. Dispute Resolution
+
+Any disputes arising out of or relating to these Terms and Conditions or the use of the Services will be resolved through binding arbitration in accordance with the rules of HorseGlobal. The arbitration will take place in an inner city back alley, and the decision of the arbitrator will be final.
+
+13. Severability
+
+If any provision of these Terms and Conditions is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.
+
+14. Entire Agreement
+
+These Terms and Conditions, along with the Privacy Policy, constitute the entire agreement between you and HorseCompany regarding your use of the Services and supersede all prior agreements or understandings, whether written or oral."
+
+[node name="Label2" type="Label" parent="TermsMenu"]
+visible = false
+layout_mode = 0
+offset_left = 303.0
+offset_top = 374.0
+offset_right = 779.0
+offset_bottom = 423.0
+text = "Input Secret Code 
+(To confirm you read terms and conditions)"
+label_settings = SubResource("LabelSettings_x0ica")
+
+[node name="TextEdit" type="TextEdit" parent="TermsMenu"]
+visible = false
+layout_mode = 0
+offset_left = 316.0
+offset_top = 413.0
+offset_right = 485.0
+offset_bottom = 448.0
+
+[node name="DownloadBar" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="DownloadBar"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 346.0
+offset_top = 272.0
+offset_right = 743.0
+offset_bottom = 299.0
+
+[node name="Timer" type="Timer" parent="DownloadBar"]
+wait_time = 0.05
+autostart = true
+
+[node name="OpenButton" type="Button" parent="DownloadBar"]
+visible = false
+layout_mode = 0
+offset_left = 371.0
+offset_top = 325.0
+offset_right = 695.0
+offset_bottom = 436.0
+theme_override_fonts/font = ExtResource("3_37hdk")
+theme_override_font_sizes/font_size = 25
+text = "Open App"
+icon = SubResource("AtlasTexture_qfw8k")
+
+[connection signal="pressed" from="FirstMenu/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="TermsMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="DownloadBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="DownloadBar/OpenButton" to="." method="_on_open_button_pressed"]

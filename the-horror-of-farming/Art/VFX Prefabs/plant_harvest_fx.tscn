@@ -1,0 +1,171 @@
+[gd_scene load_steps=22 format=4 uid="uid://boc6fvhfayiyh"]
+
+[ext_resource type="Shader" uid="uid://dtb554phw4a30" path="res://Scenes/particle_shader.tres" id="1_7trmc"]
+[ext_resource type="Script" path="res://Art/VFX Prefabs/plant_harvest_fx.gd" id="1_r7vos"]
+[ext_resource type="Texture2D" uid="uid://doomvpl0274jv" path="res://Art/Textures/32x32_Star_5.png" id="2_mqmlp"]
+[ext_resource type="Texture2D" uid="uid://bnmvbco00o5np" path="res://Art/Textures/32x32_Star_8.png" id="3_gkypj"]
+[ext_resource type="Shader" uid="uid://dgmfnsx2y3206" path="res://circleShader.tres" id="4_q0wm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t72e"]
+render_priority = 0
+shader = ExtResource("1_7trmc")
+shader_parameter/MainTexture = ExtResource("2_mqmlp")
+
+[sub_resource type="Curve" id="Curve_fh4ym"]
+_data = [Vector2(0, 0.0356083), 0.0, 0.0, 0, 0, Vector2(0.23913, 1), -0.750742, -0.750742, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i27tb"]
+texture_mode = 1
+curve = SubResource("Curve_fh4ym")
+
+[sub_resource type="Curve" id="Curve_a1h37"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_g1nr7"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_d5aow"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_vlfvl"]
+curve_x = SubResource("Curve_a1h37")
+curve_y = SubResource("Curve_g1nr7")
+curve_z = SubResource("Curve_d5aow")
+
+[sub_resource type="Curve" id="Curve_s177f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.202899, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_voawf"]
+curve = SubResource("Curve_s177f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnovk"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.28
+emission_ring_inner_radius = 0.0
+angle_min = -90.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+orbit_velocity_curve = SubResource("CurveXYZTexture_vlfvl")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_voawf")
+color = Color(0.750032, 0.95402, 1.6942e-05, 1)
+alpha_curve = SubResource("CurveTexture_i27tb")
+hue_variation_min = 0.5
+hue_variation_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8x0c0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctft8"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_gkypj")
+use_particle_trails = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hiehe"]
+particle_flag_align_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 0.6
+emission_ring_inner_radius = 0.4
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+orbit_velocity_min = 0.6
+orbit_velocity_max = 1.3
+orbit_velocity_curve = SubResource("CurveXYZTexture_vlfvl")
+gravity = Vector3(0, 0, 0)
+scale_max = 1.2
+color = Color(0.750032, 0.95402, 1.6942e-05, 1)
+alpha_curve = SubResource("CurveTexture_i27tb")
+hue_variation_min = 0.5
+hue_variation_max = 1.0
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_8x34v"]
+size = 0.4
+sections = 4
+section_length = 1.0
+section_segments = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_snx2e"]
+render_priority = 0
+shader = ExtResource("4_q0wm3")
+shader_parameter/CircleColor = Color(0.623793, 0.906339, 0.141825, 1)
+shader_parameter/Opacity = 0.0
+shader_parameter/Speed = Vector2(0, -0.3)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qf125"]
+_surfaces = [{
+"aabb": AABB(-5.76128, 0.382418, -6.25954, 13.3405, 0.210255, 13.3405),
+"attribute_data": PackedByteArray("//8AAP//////9wAA//f////3AAD/9////+8AAP/v////7wAA/+/////nAAD/5////+cAAP/n////3wAA/9/////fAAD/3////9cAAP/X////1wAA/9f////PAAD/z////88AAP/P////xwAA/8f////HAAD/x////78AAP+/////vwAA/7////+3AAD/t////7cAAP+3////rwAA/6////+vAAD/r////6cAAP+n////pwAA/6f///+fAAD/n////58AAP+f////lwAA/5f///+XAAD/l////48AAP+P////jwAA/4////+HAAD/h////4cAAP+H////fwAA/3////9/AAD/f////3cAAP93////dwAA/3f///9vAAD/b////28AAP9v////ZwAA/2f///9nAAD/Z////18AAP9f////XwAA/1////9XAAD/V////1cAAP9X////TwAA/0////9PAAD/T////0cAAP9H////RwAA/0f///8/AAD/P////z8AAP8/////NwAA/zf///83AAD/N////y8AAP8v////LwAA/y////8nAAD/J////ycAAP8n////HwAA/x////8fAAD/H////xcAAP8X////FwAA/xf///8PAAD/D////w8AAP8P////BwAA/wf///8HAAD/B///AAAAAAAA//8="),
+"format": 34896613399,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcAGAAZABoAGgAZABsAHAAdAB4AHgAdAB8AIAAhACIAIgAhACMAJAAlACYAJgAlACcAKAApACoAKgApACsALAAtAC4ALgAtAC8AMAAxADIAMgAxADMANAA1ADYANgA1ADcAOAA5ADoAOgA5ADsAPAA9AD4APgA9AD8AQABBAEIAQgBBAEMARABFAEYARgBFAEcASABJAEoASgBJAEsATABNAE4ATgBNAE8AUABRAFIAUgBRAFMAVABVAFYAVgBVAFcAWABZAFoAWgBZAFsAXABdAF4AXgBdAF8AYABhAGIAYgBhAGMAZABlAGYAZgBlAGcAaABpAGoAagBpAGsAbABtAG4AbgBtAG8AcABxAHIAcgBxAHMAdAB1AHYAdgB1AHcAeAB5AHoAegB5AHsAfAB9AH4AfgB9AH8A"),
+"name": "Cylinder",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 128,
+"vertex_data": PackedByteArray("/3///yh8H/3/fwAAAAAf/b+A//86fB/9+JgAAHUCH/2/gP//Onxj9/iYAAB1AmP3d4H//3J8Y/f7sAAAvglj93eB//9yfLLx+7AAAL4JsvEhgv//zXyy8RzHAACSFbLxIYL//818EuwcxwAAkhUS7LaC//9IfRLsgdoAAH0lEuy2gv//SH2M5oHaAAB9JY3mMYP//919jOZs6gAA4jiN5jGD///dfSnhbOoAAOI4KeGMg///h34p4UD2AAADTynhjIP//4d+9NtA9gAAA0/028SD//8/f/Tbif0AAAZn9NvEg///P3/21on9AAAGZ/bW1oP///9/9tb//wAA/3/21taD////fz7S//8AAP9/PtLEg///v4A+0on9AAD4mD7SxIP//7+A3M2J/QAA+JjczYyD//93gdzNQPYAAPuw3M2Mg///d4HiyUD2AAD7sOLJMYP//yGC4sls6gAAHMfiyTGD//8hgmLGbOoAABzHYsa2gv//toJixoHaAACB2mLGtoL//7aCcsOB2gAAgdpywyGC//8xg3LDHMcAAGzqcsMhgv//MYMmwRzHAABs6ibBd4H//4yDJsH7sAAAQPYmwXeB//+Mg5O/+7AAAED2k7+/gP//xIOTv/iYAACJ/ZO/v4D//8SDxL74mAAAif3Evv9////Wg8S+/38AAP//xL7/f///1oPEvv9/AAD//8S+P3///8SDxL4GZwAAif3Evj9////Eg5O/BmcAAIn9k7+Hfv//jIOTvwNPAABA9pO/h37//4yDJsEDTwAAQPYmwd19//8xgybB4jgAAGzqJsHdff//MYNyw+I4AABs6nLDSH3//7aCcsN9JQAAgdpyw0h9//+2gmLGfSUAAIHaYsbNfP//IYJixpIVAAAcx2LGzXz//yGC4smSFQAAHMfiyXJ8//93geLJvgkAAPuw4slyfP//d4Hczb4JAAD7sNzNOnz//7+A3M11AgAA+JjczTp8//+/gD7SdQIAAPiYPtIofP///38+0gAAAAD/fz7SKHz///9/9tYAAAAA/3/21jp8//8/f/bWdQIAAAZn9tY6fP//P3/023UCAAAGZ/Tbcnz//4d+9Nu+CQAAA0/023J8//+HfinhvgkAAANPKeHNfP//3X0p4ZIVAADiOCnhzXz//919jeaSFQAA4jiN5kh9//9IfY3mfSUAAH0ljeZIff//SH0S7H0lAAB9JRLs3X3//818EuziOAAAkhUS7N19///NfLLx4jgAAJIVsvGHfv//cnyy8QNPAAC+CbLxh37//3J8Y/cDTwAAvglj9z9///86fGP3BmcAAHUCY/c/f///Onwf/QZnAAB1Ah/9/3///yh8H/3/fwAAAAAf/XzABAN8wAUDfMAEA3zABQNgw7MIYMOzCGDDswhgw7MIFsYKDhbGCg4WxgoOFsYKDq/IJxOvyCcTr8gnE6/IJxM6yygYOssoGDrLKBg6yygYws0kHcLNJB3CzSQdws0kHVbQNiJW0DYiVtA2IlbQNiIB03cnAdN3JwHTdycB03cn1dUGLdXVBi3V1QYt1dUGLePYCTPj2Akz49gJM+PYCTNE3LE5RNyxOUTcsTlE3LE5HOBAQRzgQEEc4EBBHOBAQZrkGEqa5BhKmuQYSprkGEoM6s5UDOrOVAzqzlQM6s5U7PBWYuzwVmLs8FZi7PBWYhf6YHQW+l90FvpgdBb6X3Rf9OeFX/TnhV/054Vf9OeFVuISj1biEo9W4hKPVuISj83U8pXO1PKVzdTylc7U8pUXymObF8pjmxfKY5sXymObP8Hhnz/B4Z8/weGfP8Hhn7C5uaOwubmjsLm5o7C5uaMJsxqnCbMapwmzGqcJsxqnBa0pqgatKaoFrSmqBq0pqnan/Kx2p/ysdqf8rHan/Kw1oqivNaKorzWiqK81oqivI507siOdO7IjnTuyI507sieYxLQnmMS0J5jEtCeYxLQnk063J5NOtyeTTrcnk063CY7ouQmO6LkJjui5CY7oubOInryziJ68s4ievLOInrwEg4K/BIOBvwSDgr8Eg4G/")
+}]
+blend_shape_mode = 0
+
+[node name="PlantHarvestFX" type="Node3D"]
+script = ExtResource("1_r7vos")
+
+[node name="PlantHarvestParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07982, 0, 0.15633)
+material_override = SubResource("ShaderMaterial_6t72e")
+amount = 50
+lifetime = 2.0
+randomness = 1.0
+fixed_fps = 60
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_vnovk")
+draw_pass_1 = SubResource("QuadMesh_8x0c0")
+
+[node name="PlantHarvestParticleTrails" type="GPUParticles3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.08509, 0.230267, 0.173416)
+material_override = SubResource("StandardMaterial3D_ctft8")
+amount = 10
+lifetime = 2.0
+randomness = 1.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.9
+process_material = SubResource("ParticleProcessMaterial_hiehe")
+draw_pass_1 = SubResource("RibbonTrailMesh_8x34v")
+
+[node name="PulseShaderEffect" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.86854, 0, 0.0799354)
+material_override = SubResource("ShaderMaterial_snx2e")
+mesh = SubResource("ArrayMesh_qf125")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

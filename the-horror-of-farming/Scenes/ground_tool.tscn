@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyo3ne4e5d2sh"]
+
+[ext_resource type="Script" path="res://Scenes/ground_tool.gd" id="1_fvq86"]
+[ext_resource type="Script" path="res://Scripts/trap.gd" id="2_c3fnc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cdm48"]
+load_path = "res://.godot/imported/Bucket.png-bde92bbc9e859c77e73dfd27cf2d00ba.ctex"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t1gpi"]
+radius = 0.15
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p0y62"]
+radius = 0.966229
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bk0v2"]
+size = Vector3(0.4, 0.4, 1)
+
+[node name="GroundTool" type="Sprite3D" node_paths=PackedStringArray("light")]
+transform = Transform3D(24, 0, 0, -5.0822e-21, -1.04907e-06, 24, 0, -24, -1.04907e-06, 0, 0, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = SubResource("CompressedTexture2D_cdm48")
+script = ExtResource("1_fvq86")
+light = NodePath("SpotLight3D")
+
+[node name="GroundToolArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundToolArea"]
+shape = SubResource("SphereShape3D_t1gpi")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.0416667, -3.85676e-31, 8.82327e-24, 1.3948e-37, 0.0416667, 0, -5.52203e-30, 0, 0.0416667, 0, -7.24368e-08, 1.65717)
+visible = false
+light_color = Color(0.858097, 0.608133, 0.339218, 1)
+light_energy = 16.0
+shadow_enabled = true
+distance_fade_begin = 123.03
+spot_range = 92.0
+spot_angle = 35.27
+
+[node name="LanternLight" type="Area3D" parent="."]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LanternLight"]
+transform = Transform3D(1, 0, 0, 1.15352e-36, -4.37114e-08, -1, -5.04871e-29, 1, -4.37114e-08, 0, -3.95821e-08, 0.905536)
+shape = SubResource("CylinderShape3D_p0y62")
+
+[node name="TrapArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_c3fnc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrapArea"]
+transform = Transform3D(0.5, -1.48495e-34, 5.907e-27, 1.49089e-34, 0.5, 0, -5.91961e-27, 0, 0.5, 0, 6.5188e-09, 0.240867)
+shape = SubResource("BoxShape3D_bk0v2")
+
+[connection signal="texture_changed" from="." to="." method="_on_texture_changed"]
+[connection signal="body_entered" from="TrapArea" to="TrapArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TrapArea" to="TrapArea" method="_on_body_exited"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://w28r2djy1was"]
+
+[ext_resource type="Texture2D" uid="uid://b7yctwoyjndmm" path="res://Art/Environment/Fence.png" id="1_pyvlt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv6ce"]
+size = Vector3(0.330627, 0.317383, 0.084526)
+
+[node name="SellBox" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160262, 0)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_pyvlt")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453209, 0)
+alpha_cut = 2
+text = "SELL"
+
+[node name="SellArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SellArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105896, 0.159668, -0.0241661)
+shape = SubResource("BoxShape3D_tv6ce")

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://jm630f2vd6ps"]
+
+[node name="Artificer Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 699.0
+offset_top = 342.0
+offset_right = -1176.0
+offset_bottom = -654.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ability1" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_right = 317.0
+offset_bottom = 164.0
+scale = Vector2(1.75, 1.75)
+
+[node name="A1 Option 1" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="A1 Option 2" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="A1 Option 3" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="A1 Option 4" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="A1 Option 5" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="A1 Option 6" type="CheckBox" parent="Ability1"]
+layout_mode = 2
+
+[node name="Ability2" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_right = 412.0
+offset_bottom = 164.0
+scale = Vector2(1.75, 1.75)
+
+[node name="A2 Option 1" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="A2 Option 2" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="A2 Option 3" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="A2 Option 4" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="A2 Option 5" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="A2 Option 6" type="CheckBox" parent="Ability2"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+one_shot = true
+
+[connection signal="pressed" from="Ability1/A1 Option 1" to="." method="_on_a_1_option_1_pressed"]
+[connection signal="pressed" from="Ability1/A1 Option 2" to="." method="_on_a_1_option_2_pressed"]
+[connection signal="pressed" from="Ability1/A1 Option 3" to="." method="_on_a_1_option_3_pressed"]
+[connection signal="pressed" from="Ability1/A1 Option 4" to="." method="_on_a_1_option_4_pressed"]
+[connection signal="pressed" from="Ability1/A1 Option 5" to="." method="_on_a_1_option_5_pressed"]
+[connection signal="pressed" from="Ability1/A1 Option 6" to="." method="_on_a_1_option_6_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 1" to="." method="_on_a_2_option_1_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 2" to="." method="_on_a_2_option_2_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 3" to="." method="_on_a_2_option_3_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 4" to="." method="_on_a_2_option_4_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 5" to="." method="_on_a_2_option_5_pressed"]
+[connection signal="pressed" from="Ability2/A2 Option 6" to="." method="_on_a_2_option_6_pressed"]
