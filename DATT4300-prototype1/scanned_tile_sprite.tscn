@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds8ylmmtx4nrm"]
+
+[ext_resource type="Texture2D" uid="uid://bsbchps46ouqg" path="res://Art/TileSkewed.png" id="1_ndp1b"]
+
+[node name="Scanned Tile Sprite" type="Sprite2D"]
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("1_ndp1b")

@@ -1,0 +1,161 @@
+[gd_scene load_steps=31 format=3 uid="uid://cjp124gg7gesl"]
+
+[ext_resource type="Texture2D" uid="uid://bu044setj6rsx" path="res://Art/Player/MC_Pose_01.png" id="1_24i55"]
+[ext_resource type="Script" path="res://player.gd" id="1_tt7ap"]
+[ext_resource type="Texture2D" uid="uid://d2oaqj1jrlqd7" path="res://Art/Player/Death_Water_1.PNG" id="2_2hqxw"]
+[ext_resource type="Texture2D" uid="uid://gbvgpunkq3cc" path="res://Art/Player/MC_Twirl_01.png" id="2_nfx5r"]
+[ext_resource type="Texture2D" uid="uid://b5pomi1j6m0sn" path="res://Art/Player/MC_Twirl_02.png" id="3_8hlj3"]
+[ext_resource type="Texture2D" uid="uid://bv53ooeay2mb" path="res://Art/Player/Death_Water_2.PNG" id="3_8y4l4"]
+[ext_resource type="Texture2D" uid="uid://r54348fylkxf" path="res://Art/Player/Death_Water_3.PNG" id="4_rhxgc"]
+[ext_resource type="Texture2D" uid="uid://ct8xu4t6tcjkx" path="res://Art/Player/MC_Twirl_03.png" id="4_xedkc"]
+[ext_resource type="Texture2D" uid="uid://gplodinjtoda" path="res://Art/Player/MC_Twirl_04.png" id="5_blfnl"]
+[ext_resource type="Texture2D" uid="uid://bpfurjjxwtgk3" path="res://Art/Player/Death_Water_4.PNG" id="5_ltymc"]
+[ext_resource type="Texture2D" uid="uid://buo0ogl50fdw1" path="res://Art/Player/MC_Pose_02.png" id="6_gkr22"]
+[ext_resource type="Texture2D" uid="uid://dwlmqngn2g7nm" path="res://Art/Player/Death_Water_5.PNG" id="6_pp8qw"]
+[ext_resource type="Texture2D" uid="uid://cvttuwyq4pka8" path="res://Art/Player/MC_Pose_03.png" id="7_m7v20"]
+[ext_resource type="Texture2D" uid="uid://wx0qsrxww6ge" path="res://Art/Player/Death_Water_6.PNG" id="7_tk1nh"]
+[ext_resource type="Texture2D" uid="uid://dg01sj3r0qv12" path="res://Art/Player/MC_Pose_04.png" id="8_dvdlh"]
+[ext_resource type="Texture2D" uid="uid://burg8fbchc5r5" path="res://Art/Player/Death_Water_7.PNG" id="8_qawfd"]
+[ext_resource type="Texture2D" uid="uid://b7odqqteqwol5" path="res://Art/Player/Death_Water_8.PNG" id="9_3rh1b"]
+[ext_resource type="Texture2D" uid="uid://ceujplj6mnms1" path="res://Art/Player/MC_Pose_05.png" id="9_s0hur"]
+[ext_resource type="Texture2D" uid="uid://bfotr2u6rchbc" path="res://Art/Player/Death_Water_9.PNG" id="10_03bt1"]
+[ext_resource type="Texture2D" uid="uid://b1fqav1kd4g54" path="res://Art/Player/Death_Eye_1.png" id="16_dtkel"]
+[ext_resource type="Texture2D" uid="uid://en183a6kx01k" path="res://Art/Player/Death_Eye_2.png" id="17_tcbty"]
+[ext_resource type="Texture2D" uid="uid://cf2j47fu3w6nj" path="res://Art/Player/Death_Eye_3.png" id="18_iclp4"]
+[ext_resource type="Texture2D" uid="uid://ch42qro1a67l5" path="res://Art/Player/Death_Eye_4.png" id="19_5xeuf"]
+[ext_resource type="Texture2D" uid="uid://ctl215vpot52p" path="res://Art/Player/Death_Eye_5.png" id="20_naikt"]
+[ext_resource type="Texture2D" uid="uid://7opse4psh6tk" path="res://Art/Player/Death_Eye_6.png" id="21_v3meb"]
+[ext_resource type="Texture2D" uid="uid://coqxepvv3oskd" path="res://Art/Player/Death_Eye_7.png" id="22_onqhf"]
+[ext_resource type="Texture2D" uid="uid://b8y6o84jwfh2o" path="res://Art/Player/Death_Eye_8.png" id="23_t30gp"]
+[ext_resource type="Texture2D" uid="uid://7beylsr7car3" path="res://Art/Player/Death_Eye_9.png" id="24_4txah"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eeqxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2hqxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8y4l4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rhxgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ltymc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pp8qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tk1nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qawfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3rh1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_03bt1")
+}],
+"loop": true,
+"name": &"FallInWater",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_24i55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gkr22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m7v20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dvdlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s0hur")
+}],
+"loop": true,
+"name": &"Pose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_dtkel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tcbty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iclp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5xeuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_naikt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_v3meb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_onqhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_t30gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4txah")
+}],
+"loop": true,
+"name": &"Spotted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nfx5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8hlj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xedkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_blfnl")
+}],
+"loop": true,
+"name": &"Twirl",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy1io"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+top_level = true
+z_index = 2
+z_as_relative = false
+script = ExtResource("1_tt7ap")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(2, -5)
+sprite_frames = SubResource("SpriteFrames_eeqxt")
+animation = &"Pose"
+offset = Vector2(0, -30)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wy1io")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

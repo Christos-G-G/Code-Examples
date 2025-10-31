@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx4n8kaxr7uvo"]
+
+[ext_resource type="Script" path="res://Menus/back_menu.gd" id="1_2oi74"]
+[ext_resource type="Texture2D" uid="uid://dtc560i7o573b" path="res://Menus/MenuCover.png" id="2_ot7ap"]
+[ext_resource type="FontFile" uid="uid://ch73eeiagq8q2" path="res://Menus/Not Jam Blackletter 13/NotJamBlackletter13.ttf" id="3_t8h4q"]
+[ext_resource type="Texture2D" uid="uid://cfimek07nq5a4" path="res://Menus/Micro Icon Pack/5. Undo.png" id="4_7upfb"]
+[ext_resource type="Texture2D" uid="uid://cpo3ubq6lx1l" path="res://Menus/Micro Icon Pack/5. Move.png" id="5_lvajm"]
+[ext_resource type="FontFile" uid="uid://c4fd4b1thn7vg" path="res://Menus/Not Jam Old Style 11/NotJamOldStyle11.ttf" id="6_o0txm"]
+
+[node name="ControlMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2oi74")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ot7ap")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -123.0
+offset_right = 281.0
+offset_bottom = -33.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_t8h4q")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+icon = ExtResource("4_7upfb")
+icon_alignment = 2
+expand_icon = true
+
+[node name="HBoxContainerTitle" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 40.0
+offset_right = 473.0
+offset_bottom = 80.0
+
+[node name="ControlsTitleLabel" type="RichTextLabel" parent="HBoxContainerTitle"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_t8h4q")
+theme_override_font_sizes/normal_font_size = 45
+text = "Controls"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="5_Move" type="Sprite2D" parent="HBoxContainerTitle"]
+position = Vector2(314, 20)
+scale = Vector2(7, 7)
+texture = ExtResource("5_lvajm")
+
+[node name="TextLabel_Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -183.0
+offset_bottom = 267.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_o0txm")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Press hotkeys 1, 2, 3, 4 to switch between dance move sets. Click on a highlighted tile to advance to it. Land on the neon green tile to complete the level. Avoid stepping into hazards, and stay out of sight of enemies searching for you.
+
+Press 'R' to restart the level. "
+fit_content = true
+scroll_active = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

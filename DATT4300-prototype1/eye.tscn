@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://k713bfli615n"]
+
+[ext_resource type="Script" path="res://detection_area.gd" id="1_fs7o0"]
+[ext_resource type="Texture2D" uid="uid://cqe83wda238ld" path="res://icon.svg" id="1_qla5f"]
+
+[node name="Eye" type="Node2D"]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("1_fs7o0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_qla5f")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="scan"]

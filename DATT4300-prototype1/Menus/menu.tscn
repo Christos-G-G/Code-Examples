@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4dvmgobgovjk"]
+
+[ext_resource type="Script" path="res://Menus/menu.gd" id="1_xbidm"]
+[ext_resource type="Texture2D" uid="uid://u3pn7i6rfv1q" path="res://Art/BG.PNG" id="2_44gqb"]
+[ext_resource type="Texture2D" uid="uid://dyv7a8qbjw0yk" path="res://Menus/Micro Icon Pack/5. Send.png" id="4_u6pbk"]
+[ext_resource type="Script" path="res://Menus/title_label.gd" id="5_aihqh"]
+[ext_resource type="Texture2D" uid="uid://cpo3ubq6lx1l" path="res://Menus/Micro Icon Pack/5. Move.png" id="5_bjlls"]
+[ext_resource type="Texture2D" uid="uid://tik4del55je1" path="res://Menus/Micro Icon Pack/9. Close or Multiply.png" id="6_656p5"]
+[ext_resource type="Texture2D" uid="uid://deboxq1gf1ggt" path="res://Menus/Micro Icon Pack/1. Pen.png" id="7_iwle2"]
+[ext_resource type="FontFile" uid="uid://crwref1voo25c" path="res://Art/SOEXT___.ttf" id="8_axwl2"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbidm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_44gqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -487.0
+offset_top = -56.0
+offset_right = -137.0
+offset_bottom = 274.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_axwl2")
+theme_override_font_sizes/font_size = 65
+text = "Play"
+icon = ExtResource("4_u6pbk")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_axwl2")
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+icon = ExtResource("5_bjlls")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_axwl2")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+icon = ExtResource("6_656p5")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Credits" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 90)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 516.0
+offset_right = 332.0
+offset_bottom = 606.0
+theme_override_fonts/font = ExtResource("8_axwl2")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+icon = ExtResource("7_iwle2")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -705.0
+offset_top = -106.0
+offset_right = 64.0
+offset_bottom = 251.0
+grow_horizontal = 0
+theme_override_fonts/normal_font = ExtResource("8_axwl2")
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "
+[center][wave amp=75 freq=4]Curse[/wave][color=gray] of the
+[/color] [wave amp=75 freq=4]Hidden Beat[/wave][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("5_aihqh")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

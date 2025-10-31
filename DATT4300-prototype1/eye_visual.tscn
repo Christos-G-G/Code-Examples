@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://172r2whk02u4"]
+
+[ext_resource type="Texture2D" uid="uid://jkii401i0o5t" path="res://Art/Eye_1.2.PNG" id="1_0n86g"]
+[ext_resource type="Script" path="res://eye_visual.gd" id="2_5w0dl"]
+
+[node name="EyeVisual" type="Sprite2D"]
+z_index = 4
+position = Vector2(0, 16)
+texture = ExtResource("1_0n86g")
+script = ExtResource("2_5w0dl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

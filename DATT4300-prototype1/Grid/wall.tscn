@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ymy1x522jdr"]
+
+[ext_resource type="Script" path="res://Grid/wall.gd" id="1_ds5c0"]
+[ext_resource type="Texture2D" uid="uid://c7tiro2glksww" path="res://Art/WallTile1.png" id="1_vqo1c"]
+
+[node name="Wall" type="Sprite2D"]
+visible = false
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -8)
+texture = ExtResource("1_vqo1c")
+offset = Vector2(0, -10)
+script = ExtResource("1_ds5c0")

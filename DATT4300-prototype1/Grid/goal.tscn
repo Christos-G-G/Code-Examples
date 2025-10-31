@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccfws3t1e5usq"]
+
+[ext_resource type="Script" path="res://Grid/goal.gd" id="1_iak5w"]
+
+[node name="Goal" type="Sprite2D"]
+script = ExtResource("1_iak5w")

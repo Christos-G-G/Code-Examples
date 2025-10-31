@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp8hm0j10psot"]
+
+[ext_resource type="Script" path="res://detection_tile.gd" id="1_fx2n5"]
+[ext_resource type="Script" path="res://area_2d.gd" id="2_03ov7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4r7c"]
+
+[node name="DetectionTile" type="Node2D"]
+script = ExtResource("1_fx2n5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_03ov7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_a4r7c")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

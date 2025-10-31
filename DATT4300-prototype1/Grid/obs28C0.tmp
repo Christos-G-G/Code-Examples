@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjm7ofykcr1hd"]
+
+[ext_resource type="Script" path="res://Grid/obstacle.gd" id="1_gwsbu"]
+[ext_resource type="Texture2D" uid="uid://b3us00alyafrt" path="res://Art/Water1.png" id="1_tygc5"]
+[ext_resource type="Texture2D" uid="uid://dj485ml1fulfc" path="res://Art/Water2.png" id="2_w83mx"]
+[ext_resource type="Script" path="res://Grid/obstaclearea.gd" id="3_ca27h"]
+[ext_resource type="Texture2D" uid="uid://cnwev4lksik8k" path="res://Art/Water3.png" id="3_s32v0"]
+[ext_resource type="Texture2D" uid="uid://dt7hysvpeo06q" path="res://Art/Water4.png" id="4_3yo15"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkmtn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tygc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w83mx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s32v0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3yo15")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7fxr1"]
+radius = 3.0
+height = 10.0
+
+[node name="Obstacle" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fkmtn")
+autoplay = "default"
+script = ExtResource("1_gwsbu")
+
+[node name="ObstacleArea" type="Area2D" parent="."]
+script = ExtResource("3_ca27h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7fxr1")

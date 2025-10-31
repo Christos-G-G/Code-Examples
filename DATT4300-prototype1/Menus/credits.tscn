@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://chymsug66xlo5"]
+
+[ext_resource type="Script" path="res://Menus/back_menu.gd" id="1_tgolx"]
+[ext_resource type="FontFile" uid="uid://crwref1voo25c" path="res://Art/SOEXT___.ttf" id="2_ue15d"]
+[ext_resource type="Texture2D" uid="uid://cfimek07nq5a4" path="res://Menus/Micro Icon Pack/5. Undo.png" id="4_o4icd"]
+[ext_resource type="Texture2D" uid="uid://deboxq1gf1ggt" path="res://Menus/Micro Icon Pack/1. Pen.png" id="5_4rb0w"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tgolx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel_Credits" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -243.0
+offset_right = -37.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_ue15d")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "- https://not-jam.itch.io/not-jam-font-pack
+- https://shmorgus.itch.io/micro-icon-pack
+- https://scrabling.itch.io/pixel-isometric-tiles
+- https://www.zapsplat.com/music/black-fedora-sneaky-jazz/
+- https://mixkit.co/free-sound-effects/swoosh/
+- https://pixabay.com/sound-effects/search/water%20splash/
+- https://pixabay.com/sound-effects/search/camera%20moving/
+- Sound Effect by <a href=\" \">Alexander Jauk</a > from <a href=\"https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=228912\">Pixabay</a >"
+fit_content = true
+scroll_active = false
+selection_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -123.0
+offset_right = 281.0
+offset_bottom = -33.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ue15d")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+icon = ExtResource("4_o4icd")
+icon_alignment = 2
+expand_icon = true
+
+[node name="HBoxContainerTitle" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 23.0
+offset_right = 95.0
+offset_bottom = 69.0
+grow_horizontal = 2
+
+[node name="CreditsTitleLabel" type="RichTextLabel" parent="HBoxContainerTitle"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_ue15d")
+theme_override_font_sizes/normal_font_size = 55
+text = "Credits"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="1_Pen" type="Sprite2D" parent="HBoxContainerTitle"]
+position = Vector2(162, 35)
+scale = Vector2(7, 7)
+texture = ExtResource("5_4rb0w")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
